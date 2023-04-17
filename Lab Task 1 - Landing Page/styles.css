@@ -1,0 +1,52 @@
+.logo{
+    width: 105px;
+    height: 40px;
+}
+.btn {
+    border:none;
+    color: black;
+}
+.carousel-item{
+    height: 640px;
+}
+.d-block{
+    height: 700px;
+}
+.card{
+    border: none;
+  
+}
+a{
+    text-decoration: none;
+    color: black;
+    }
+h5{
+    color: black;
+}
+.carousel-inner1 .row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  @media (max-width: 767px) {
+    .carousel-control {
+      display: none;
+    }
+  }
+  .hotdeals{
+    width: 100%;
+  }
+.card1{
+    width: 250px;
+
+
+}
+.price{
+    color: green;
+}
+.navbar1{
+    margin-top: 10px;
+    background-color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
