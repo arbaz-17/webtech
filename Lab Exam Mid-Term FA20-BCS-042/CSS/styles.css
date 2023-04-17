@@ -13,6 +13,10 @@
   .dropdown .dropdown-menu {
     display: none;
   }
+  .dropdown-item:hover{
+    background-color: black;
+    color: white;
+  }
   .dropdown:hover .dropdown-toggle::after {
     border-bottom: 0.3em solid;
     border-top: 0;
@@ -23,4 +27,67 @@
     border-top: 0;
     border-bottom: 0.3em solid;
   }
+}
+.logo{
+  padding-left: 40px;
+  padding-right: 40px;
+}
+a{
+  text-decoration: none;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .fa-search {
+    font-size: 24px;
+  }
+
+.logo2{
+  margin-left: 60px;
+  margin-right: 90px;
+  width: 140px;
+  height: 30px;
+}
+
+.flag{
+  margin-top: 15px;
+  width: 25px;
+  height: 15px;
+}
+
+.carousel-control-next-icon{
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  border-radius: 20px;
+}
+
+.carousel-control-prev-icon{
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  border-radius: 20px;
+}
+
+.carousel{
+  margin-top: 50px;
+}
+
+footer{
+  background-color: black;
+  color: white;
+}
+
+.intro{
+  margin-left: 90px;
+  margin-right: 90px;
+}
+hr.vertical {
+  height: 100%;
+  margin: 0;
+  border: none;
+  border-right: 1px solid #ccc;
+}
+
+.footp{
+  font-weight: lighter;
 }
