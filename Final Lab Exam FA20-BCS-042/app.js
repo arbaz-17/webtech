@@ -1,20 +1,20 @@
-var createError = require('http-errors');
-var express = require('express');
+// app.js
+const createError = require('http-errors');
+const express = require('express');
 const connectDB = require('./db');
 const gameRoutes = require('./routes/games');
 const loginRouter = require('./routes/login');
 const dashboardRouter = require('./routes/dashboard');
 const methodOverride = require('method-override');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var expressLayouts = require('express-ejs-layouts');
-const mongoose = require('mongoose');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const expressLayouts = require('express-ejs-layouts');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
 
-var app = express();
+
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,12 +40,10 @@ app.use('/', indexRouter); // Set up the index router first
 app.use('/', loginRouter); // Set up the login router separately
 app.use('/dashboard', dashboardRouter);
 app.use('/games', gameRoutes);
-app.use('/users', usersRouter);
+
+
+// Use method override middleware
 app.use(methodOverride('_method'));
-
-
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
