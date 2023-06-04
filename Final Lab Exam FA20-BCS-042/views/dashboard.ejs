@@ -1,0 +1,15 @@
+<div class="container">
+    <h1 class="mt-5">Games List</h1>
+    <div class="row">
+      <% games.forEach(function(game) { %>
+        <div class="col-md-4 mt-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= game.name %></h5>
+              <p class="card-text">Price: <%= game.price %></p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
