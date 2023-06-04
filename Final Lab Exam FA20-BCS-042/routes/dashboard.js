@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Game = require('../models/Game');
 
-router.get('/dashboard', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const games = await Game.find();
     res.render('dashboard', { games });

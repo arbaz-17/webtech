@@ -4,6 +4,7 @@ const connectDB = require('./db');
 const gameRoutes = require('./routes/games');
 const loginRouter = require('./routes/login');
 const dashboardRouter = require('./routes/dashboard');
+const methodOverride = require('method-override');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -40,6 +41,8 @@ app.use('/', loginRouter); // Set up the login router separately
 app.use('/dashboard', dashboardRouter);
 app.use('/games', gameRoutes);
 app.use('/users', usersRouter);
+app.use(methodOverride('_method'));
+
 
 
 
