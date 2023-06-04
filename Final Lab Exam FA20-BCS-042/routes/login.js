@@ -23,7 +23,7 @@ router.post('/login', (req, res) => {
 });
 // Signup Route
 router.post('/signup', (req, res) => {
-  const { email, password } = req.body;
+  const { fullname,email, password } = req.body;
 
   User.findOne({ email }) // Check if the user already exists
     .then((existingUser) => {
@@ -32,14 +32,26 @@ router.post('/signup', (req, res) => {
         return res.send('<script>alert("User Already Exists"); window.location.href = "/";</script>');
       }
 
-      // User does not exist, create a new user
-      const user = new User({ email, password });
+      // User does not exist, create a new user with fullname
+      const user = new User({ fullname,email, password });
       return user.save(); // Save the new user
     })
     .then(() => {
       // User is successfully created or user already exists, redirect to the dashboard or perform any other action
       // You can modify this part based on your desired logic
       res.redirect('/dashboard');
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+    });
+});
+
+// get all users
+router.get('/users', (req, res) => {
+  User.find() // Retrieve all users from the database
+    .then((users) => {
+      res.json(users); // Send the users as a JSON response
     })
     .catch((err) => {
       console.error(err);

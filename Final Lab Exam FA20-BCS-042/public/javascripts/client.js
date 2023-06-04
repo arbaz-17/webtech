@@ -1,3 +1,4 @@
+
 // Add event listeners to the edit buttons
 const editBtns = document.getElementsByClassName('edit-btn');
 Array.from(editBtns).forEach(btn => {
@@ -7,6 +8,18 @@ Array.from(editBtns).forEach(btn => {
     editForm.classList.toggle('d-none');
   });
 });
+
+const saveBtns = document.querySelectorAll('.save-btn');
+saveBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const gameCard = btn.closest('.card');
+    const gameId = gameCard.dataset.gameId; // Extract the gameId from the dataset
+    const editName = gameCard.querySelector('#editName').value;
+    const editPrice = gameCard.querySelector('#editPrice').value;
+    updateGame(gameId, editName, editPrice); // Pass the gameId to the updateGame function
+  });
+});
+
 
 // Add event listener to the add game button
 const addGameBtn = document.getElementById('addGameBtn');
@@ -33,6 +46,7 @@ Array.from(deleteBtns).forEach(btn => {
         if (!response.ok) {
           throw new Error('Failed to delete game');
         }
+        console.log('Game Deleted Successfully')
         location.reload(); // Reload the page after successful deletion
       } catch (error) {
         console.error(error);
@@ -45,16 +59,17 @@ Array.from(deleteBtns).forEach(btn => {
 // Function to update a game
 const updateGame = async (gameId, updatedName, updatedPrice) => {
   try {
+    console.log('Game Updated Successfully')
     const response = await fetch(`/games/${gameId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: updatedName,
-        price: updatedPrice
-      })
-    });
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: updatedName,
+          price: updatedPrice
+        })
+      });
     if (!response.ok) {
       throw new Error('Failed to update game');
     }
@@ -69,19 +84,11 @@ const updateGame = async (gameId, updatedName, updatedPrice) => {
       cardPrice.textContent = `Price: ${updatedPrice}`;
       gameCard.querySelector('.edit-form').classList.add('d-none');
     }
+    console.log('Game Updated Successfully')
   } catch (error) {
     console.error(error);
   }
 };
 
 // Event listener for save button
-const saveBtns = document.querySelectorAll('.save-btn');
-saveBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const gameCard = btn.closest('.card');
-    const gameId = gameCard.dataset.gameId;
-    const editName = gameCard.querySelector('#editName').value;
-    const editPrice = gameCard.querySelector('#editPrice').value;
-    updateGame(gameId, editName, editPrice);
-  });
-});
+// Event listener for save button

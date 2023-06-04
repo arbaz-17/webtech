@@ -12,8 +12,7 @@ router.post('/', async (req, res) => {
     const { name, price } = req.body;
     const game = new Game({ name, price });
     await game.save();
-    res.status(201).json(game);
-    console.log('POST request received');
+    res.redirect('/dashboard');
   } catch (error) {
     res.status(500).json({ error: 'Failed to create game' });
   }
@@ -50,7 +49,8 @@ router.put('/:id', async (req, res) => {
     if (!game) {
       return res.status(404).json({ error: 'Game not found' });
     }
-    res.json(game);
+    console.log('In Updating Function')
+    res.json({ message: 'Game Updated successfully' });
   } catch (error) {
     res.status(500).json({ error: 'Failed to update game' });
   }
@@ -63,10 +63,19 @@ router.delete('/:id', async (req, res) => {
     if (!game) {
       return res.status(404).json({ error: 'Game not found' });
     }
+    console.log('Game Deleted Successfully')
     res.json({ message: 'Game deleted successfully' });
-  } catch (error) {
+  }
+   
+  catch (error) {
     res.status(500).json({ error: 'Failed to delete game' });
   }
+});
+
+// Define the dashboard route
+router.get('/dashboard', (req, res) => {
+  // Render the dashboard view or perform other actions
+  res.render('dashboard');
 });
 
 module.exports = router;
