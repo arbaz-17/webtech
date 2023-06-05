@@ -1,9 +1,11 @@
+
+<link rel="stylesheet" href="/stylesheets/dashboard.css">
 <div class="container">
   <h1 class="mt-5 text-center">AVAILABLE GAMES</h1>
   <div class="row">
     <% games.forEach(function(game) { %>
     <div class="col-md-4 mt-4">
-      <div class="card" data-game-id="<%= game._id %>">
+      <div class="card shadow">
         <div class="card-body">
           <h5 class="card-title"><%= game.name %></h5>
           <p class="card-text">Price: <%= game.price %></p>
@@ -12,7 +14,7 @@
             <button type="button" class="btn btn-danger delete-btn">Delete</button>
           </form>
           <button type="button" class="btn btn-primary edit-btn">Edit</button>
-          <div class="edit-form d-none">
+          <div class="edit-form d-none mt-3">
             <div class="form-group">
               <label for="editName">Name:</label>
               <input type="text" class="form-control" id="editName" value="<%= game.name %>">
@@ -30,7 +32,7 @@
     <% }) %>
   </div>
   <div class="mt-4">
-    <button type="button" class="btn btn-success" id="addGameBtn">Add Game</button>
+    <button type="button" class="btn btn-success addGameBtn" id="addGameBtn">Add Game</button>
     <form action="/games" method="POST" class="add-game-form d-none mt-4">
       <div class="form-group">
         <label for="gameName">Name:</label>

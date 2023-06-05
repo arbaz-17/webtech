@@ -1,0 +1,64 @@
+.card {
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-title {
+    color: #333;
+    font-weight: bold;
+  }
+
+  .delete-btn {
+    margin-bottom: 3px;
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+
+  .delete-btn:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+  }
+
+  .edit-btn {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+
+  .edit-btn:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+
+  .save-btn {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+
+  .save-btn:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+
+  .cancel-btn {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+
+  .cancel-btn:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+  }
+
+  .addGameBtn {
+    background-color: rgb(255, 149, 0);
+    border-color: rgb(255, 85, 0);
+  }
+
+  .addGameBtn:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }

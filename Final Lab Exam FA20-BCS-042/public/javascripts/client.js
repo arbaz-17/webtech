@@ -42,6 +42,7 @@ Array.from(deleteBtns).forEach(btn => {
           headers: {
             'Content-Type': 'application/json'
           }
+          
         });
         if (!response.ok) {
           throw new Error('Failed to delete game');
