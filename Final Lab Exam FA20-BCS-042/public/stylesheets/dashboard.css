@@ -53,12 +53,7 @@
     border-color: #545b62;
   }
 
-  .addGameBtn {
-    background-color: rgb(255, 149, 0);
-    border-color: rgb(255, 85, 0);
-  }
-
-  .addGameBtn:hover {
-    background-color: #218838;
-    border-color: #1e7e34;
+#addCategoryBtn{
+    background-color: #6c757d;
+    border-color: #6c757d;
   }

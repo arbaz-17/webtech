@@ -1,16 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const Game = require('../models/Game');
+const Category = require('../models/Category');
 
 router.get('/', async (req, res) => {
   try {
-    const games = await Game.find();
-    res.render('dashboard', { games });
+    const categories = await Category.find();
+    res.render('dashboard', { categories });
   } catch (error) {
-    res.status(500).json({ error: 'Failed to retrieve games' });
+    res.status(500).json({ error: 'Failed to retrieve categories' });
   }
 });
 
 module.exports = router;
-
-
