@@ -1,0 +1,78 @@
+.custom-carousel {
+    width: 100%; /* Set the desired width */
+    height: 540px; /* Set the desired height */
+    aspect-ratio: 1550/550;
+    overflow: hidden;
+  }
+  .custom-carousel .carousel-inner {
+    height: 100%;
+  }
+  
+  .custom-carousel .carousel-item {
+    height: 100%;
+  }
+  
+  .custom-carousel .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .container-fluid{
+
+    width: 1550px;
+    height: 110px;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 5px
+  }
+.container-fluid2{
+
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    justify-content: flex-start; /* Adjust as needed */
+    align-items: center; /* Adjust as needed */
+    gap: 170px;
+}
+
+.card {
+    padding: 10px;
+    flex: 0 0 auto;
+    border: none; /* Hide the border initially */
+    transition: border 0.6s ease-in; /* Smooth transition for border change */
+  }
+
+  .card:hover {
+    border: 2px solid black; /* Show solid black border on hover */
+  }
+
+  .card-name {
+    margin-top: 10px;
+    text-align: center;
+    font-family: monospace;
+    font-weight: bolder;
+  }
+
+  .custom-carousel2 {
+    width: 100%; /* Set the desired width */
+    height: 200px; /* Set the desired height */
+    aspect-ratio: 1550/200;
+    overflow: hidden;
+  }
+
+  .card2 {
+    padding: 10px;
+    flex: 0 0 auto;
+    border: none; /* Hide the border initially */
+    transition: box-shadow 0.3s ease-in; /* Smooth transition for border change */
+  }
+  .card2:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  a{
+    text-decoration: none;
+    color: black;
+    padding: 0;
+  }

@@ -1,0 +1,50 @@
+.logo
+{
+    width: 170px;
+    height: 100px;
+    padding-left: 10px;
+}
+
+.navbar {
+  font-family:monospace;
+  font-weight: bold;
+  padding: 0;
+
+  
+}
+
+.navbar-brand {
+  font-size: 24px;
+  padding: 0;
+
+}
+
+.navbar-nav .nav-link {
+  font-size: 18px;
+  color: white;
+  padding: 0;
+
+}
+
+html {
+    height: 100%;
+  }
+  
+  body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content-wrapper {
+    min-height: calc(100% - 60px); /* Adjust the value (60px) based on the footer height */
+  }
+
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+  }

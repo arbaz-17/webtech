@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="/stylesheets/layoutlogin.css">
+<link rel="stylesheet" href="/stylesheets/admin_users.css">
+<div class="container">
+  <h1>USERS</h1>
+  <hr>
+
+  <% if (users.length > 0) { %>
+
+    <div class="mb-5">
+      <h3>ADMINS</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.filter(user => user.role === 'admin').forEach(user => { %>
+            <tr>
+              <td><%= user.fullname %></td>
+              <td><%= user.email %></td>
+              <td>
+                <form method="POST" action="/userdata/delete">
+                  <input type="hidden" name="id" value="<%= user._id %>">
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div>
+      <h3>CUSTOMERS</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.filter(user => user.role === 'customer').forEach(user => { %>
+            <tr>
+              <td><%= user.fullname %></td>
+              <td><%= user.email %></td>
+              <td>
+                <form method="POST" action="/userdata/delete">
+                  <input type="hidden" name="id" value="<%= user._id %>">
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  <% } else { %>
+    <p>No users found.</p>
+  <% } %>
+
+</div>

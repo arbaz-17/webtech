@@ -1,0 +1,49 @@
+body {
+    background-image: url('/images/adminbg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* CSS for the cards */
+  .card {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    margin-top: 80px;
+    margin-right: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+
+  .center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .card img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card-name {
+    margin-top: 10px;
+    text-align: center;
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: larger;
+  }
+
+  a{
+    text-decoration: none;
+    color: black;
+  }

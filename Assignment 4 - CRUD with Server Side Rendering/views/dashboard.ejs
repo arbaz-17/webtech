@@ -1,0 +1,142 @@
+<link rel="stylesheet" href="/stylesheets/dashboard.css">
+<link rel="stylesheet" href="/stylesheets/admin_console.css">
+
+<div class="container">
+  <% if (role === 'customer') { %>
+    <div class="row">
+      <% games.forEach(function(game) { %>
+        <div class="col-md-4 mt-4">
+          <div class="card" data-game-id="<%= game._id %>">
+            <img src="<%= game.imgURL %>" class="card-img-top" alt="Game Image">
+            <div class="card-body">
+              <h5 class="card-title"><%= game.name %></h5>
+              <p class="card-text">Category: <%= game.category %></p>
+              <p class="card-text">Price: <%= game.price %> PKR</p>
+              <a href="/add-to-cart?user_id=<%= user._id %>&product_id=<%= game._id %>&product_url=<%= game.imgURL %>&product_name=<%= game.name %>&product_price=<%= game.price %>" class="btn btn-primary" style="width: 230px;">Purchase</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+  
+  <% if (role === 'admin') { %>
+    <div class="mt-4 align-items-center">
+      <div class="row my-5">
+        <button type="button" class="btn btn-success text" id="addGameBtn">ADD A GAME</button>
+      </div>
+      <form action="/games" method="POST" class="add-game-form d-none mt-4">
+        <div class="form-group">
+          <label for="gameName">Name:</label>
+          <input type="text" class="form-control" id="gameName" name="name">
+        </div>
+        <div class="form-group">
+          <label for="gameCategory">Category:</label>
+          <select class="form-control" id="gameCategory" name="category">
+            <option value="Action">Action</option>
+            <option value="Fighting">Fighting</option>
+            <option value="Racing">Racing</option>
+            <option value="Role Playing">Role Playing</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Sports">Sports</option>
+            <option value="War">War</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="gamePrice">Price:</label>
+          <input type="text" class="form-control" id="gamePrice" name="price">
+        </div>
+        <div class="form-group">
+          <label for="gameDescription">Description:</label>
+          <textarea class="form-control" id="gameDescription" name="description"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="gameImageURL">Image URL:</label>
+          <input type="text" class="form-control" id="gameImageURL" name="imgURL">
+        </div>
+        <button type="submit" class="btn btn-success">SUBMIT</button>
+      </form>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-1">
+        <h4><strong>COVER</strong></h4>
+      </div>
+      <div class="col-md-2">
+        <h4><strong>NAME</strong></h4>
+      </div>
+      <div class="col-md-1">
+        <h4><strong>PRICE</strong></h4>
+      </div>
+      <div class="col-md-1">
+        <h4><strong>GENRE</strong></h4>
+      </div>
+      <div class="col-md-2">
+        <h4><strong>DESCRIPTION</strong></h4>
+      </div>
+      <div class="col-md-3">
+        <h4><strong>ACTIONS</strong></h4>
+      </div>
+    </div>
+    
+    <% games.forEach(function(game) { %>
+      <div class="row my-3">
+        <div class="col-md-1">
+          <img src="<%= game.imgURL %>" alt="Game Image" style="width: 50px; height: 50px;">
+        </div>
+        <div class="col-md-2">
+          <h5><%= game.name %></h5>
+        </div>
+        <div class="col-md-1">
+          <p><%= game.price %> PKR</p>
+        </div>
+        <div class="col-md-1">
+          <p><%= game.category %></p>
+        </div>
+        <div class="col-md-2">
+          <p class="description"><%= game.description %></p>
+        </div>
+<div class="col-md-1">
+  <form method="POST" action="/games/delete">
+    <input type="hidden" name="id" value="<%= game._id %>">
+    <button type="submit" class="btn btn-danger">DELETE</button>
+  </form>
+</div>
+        <div class="col-md-3">
+          <button type="button" class="btn btn-primary edit-btn" data-game-id="<%= game._id %>"
+            data-game-name="<%= game.name %>" data-game-category="<%= game.category %>"
+            data-game-price="<%= game.price %>" data-game-description="<%= game.description %>"
+            data-game-image="<%= game.imgURL %>">EDIT</button>
+          <div class="edit-form d-none">
+            <form method="POST" action="/games/update">
+              <input type="hidden" name="id" value="<%= game._id %>">
+              <div class="form-group">
+                <label for="editName">Name:</label>
+                <input type="text" class="form-control" id="editName" name="name" value="<%= game.name %>">
+              </div>
+              <div class="form-group">
+                <label for="editCategory">Category:</label>
+                <input type="text" class="form-control" id="editCategory" name="category" value="<%= game.category %>">
+              </div>
+              <div class="form-group">
+                <label for="editPrice">Price:</label>
+                <input type="text" class="form-control" id="editPrice" name="price" value="<%= game.price %>">
+              </div>
+              <div class="form-group">
+                <label for="editDescription">Description:</label>
+                <textarea class="form-control" id="editDescription" name="description"><%= game.description %></textarea>
+              </div>
+              <div class="form-group">
+                <label for="editImageURL">Image URL:</label>
+                <input type="text" class="form-control" id="editImageURL" name="imgURL" value="<%= game.imgURL %>">
+              </div>
+              <button type="submit" class="btn btn-primary save-btn">Save</button>
+              <button type="button" class="btn btn-secondary cancel-btn">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  <% } %>
+</div>
+<script src="/javascripts/game.js"></script>

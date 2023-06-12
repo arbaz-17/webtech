@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/stylesheets/cartdesign.css">
+
+<div class="container">
+  <div class="header">
+    <h1>YOUR SHOPPING CART</h1>
+  </div>
+  <hr>
+  <% let totalCost = 0; %>
+  <% cartItems.forEach(item => { %>
+    <% if (item.user_id == user._id) { %>
+      <% totalCost += item.product_price; %>
+      <div class="cart-item">
+        <img src="<%= item.product_url %>" alt="Product Image">
+        <div class="cart-item-details">
+          <h3 class="cart-item-title"><%= item.product_name %></h3>
+          <p class="cart-item-price">PKR <%= item.product_price %></p>
+        </div>
+        <button class="delete-button"><a href="/delete-cart?product_id=<%= item.product_id %>">DELETE</a></button>
+      </div>
+      <hr>
+    <% } %>
+  <% }) %>
+  <% if (cartItems.length > 0) { %>
+    <p class="total-cost">Total Cost: PKR <%= totalCost %></p>
+    <button class="checkout-button">CHECKOUT</button>
+    
+  <% } %>
+</div>
+
